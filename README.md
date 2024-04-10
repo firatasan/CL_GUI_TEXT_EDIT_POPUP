@@ -3,7 +3,7 @@
 # CL_GUI_TEXTEDIT_POPUP
 CL_GUI_TEXTEDIT_POPUP 
 
-- [**Attributes**](main#Attributes)
+- [**Attributes**](#Attributes)
   - [MV_TEXT](#MV_TEXT)
   - [MO_TEXT_CTRL](#MO_TEXT_CTRL)
   - [MO_PARENT](#MO_PARENT)
