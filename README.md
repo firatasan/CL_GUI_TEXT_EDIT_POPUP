@@ -69,9 +69,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/settext.jpg" alt="Set Text Method" >
-  <br>
 
   <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -84,9 +81,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   endmethod.
 ```
-  <br>
-  <img src="./ScreenShots/getdisplaymode.jpg" alt="Get Display Mode" >
-  <br>
 
 <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -100,9 +94,7 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   endmethod.
 ```
-  <br>
-  <img src="./ScreenShots/setparent.jpg" alt="Set Parent" >
-  <br>
+
 
 <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -118,9 +110,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/getinstance.jpg" alt="Get Instance" >
-  <br>
 
 <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -140,9 +129,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/popuptoconfirm.jpg" alt="popuptoconfirm" >
-  <br>
 
   <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -161,9 +147,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/createtextctrl.jpg" alt="Create Text Ctrl" >
-  <br>
 
   <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -182,9 +165,6 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 
   ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/popuptoinfo.jpg" alt="Popup To Info" >
-  <br>
 
   <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -202,9 +182,6 @@ METHOD SET_PROPERTIES.
 
 ENDMETHOD.
 ```
-  <br>
-  <img src="./ScreenShots/setproperties.jpg" alt="Set Properties" >
-  <br>
 
   <p align="right"><a href="#top">⬆️ back to top</a></p>
 
@@ -308,14 +285,30 @@ ENDMODULE.
   <br>
   <img src="./ScreenShots/func3.jpg" alt="Func 3" >
   <br>
-      
 
-<br>
-<a href="https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/index.htm?file=abencds_arithmetic_expression_v2.htm">SAP Docu</a>
-<br>
-<br>
+  <br>
+  <img src="./ScreenShots/func4.jpg" alt="Func 3" >
+  <br>
 
+  <br>
+  <img src="./ScreenShots/func5.jpg" alt="Func 3" >
+  <br>
 
+  <br>
+  <img src="./ScreenShots/func6.jpg" alt="Func 3" >
+  <br>
+
+  <br>
+  <img src="./ScreenShots/func7.jpg" alt="Func 3" >
+  <br>
+
+  <br>
+  <img src="./ScreenShots/func8.jpg" alt="Func 3" >
+  <br>
+
+  <br>
+  <img src="./ScreenShots/func9.jpg" alt="Func 3" >
+  <br>
 
 
 
