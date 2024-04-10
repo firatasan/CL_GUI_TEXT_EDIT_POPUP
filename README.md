@@ -112,7 +112,7 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 ```abap
   METHOD GET_INSTANCE.
 
-    ro_obj = NEW /TNG/CL_GUI_TEXTEDIT_POPUP( ).
+    ro_obj = NEW ZCL_GUI_TEXTEDIT_POPUP( ).
     ro_obj->mv_text = iv_text.
     ro_obj->mv_icon = iv_icon.
 
@@ -129,9 +129,9 @@ SET_PROPERTIES	    Instance Method    	Private	                               	P
 ```abap
   METHOD POPUP_TO_CONFIRM.
 
-    mv_display_mode = /tng/if_et_editor_constants=>co_popup_to_confirm.
+    mv_display_mode = 000.
 
-    CALL FUNCTION '/TNG/GUI_TEXTEDIT_POPUP'
+    CALL FUNCTION 'ZGUI_TEXTEDIT_POPUP'
       EXPORTING
         io_text_ctrl = me
       IMPORTING
@@ -212,11 +212,11 @@ ENDMETHOD.
 # Function
 
 ```abap
-FUNCTION /TNG/GUI_TEXTEDIT_POPUP .
+FUNCTION ZGUI_TEXTEDIT_POPUP .
 *"----------------------------------------------------------------------
 *"*"Lokale Schnittstelle:
 *"  IMPORTING
-*"     REFERENCE(IO_TEXT_CTRL) TYPE REF TO  /TNG/CL_GUI_TEXTEDIT_POPUP
+*"     REFERENCE(IO_TEXT_CTRL) TYPE REF TO  ZCL_GUI_TEXTEDIT_POPUP
 *"  EXPORTING
 *"     REFERENCE(EV_CONFIRMED) TYPE  SAP_BOOL
 *"----------------------------------------------------------------------
@@ -253,7 +253,7 @@ MODULE status_0100 OUTPUT.
   go_text_ctrl->set_parent( go_container ).
   go_text_ctrl->create_text_ctrl( ).
 
-  IF go_text_ctrl->get_display_mode( ) EQ /tng/if_et_editor_constants=>co_popup_to_confirm.
+  IF go_text_ctrl->get_display_mode( ) EQ 000.
     SET TITLEBAR  'TITLE_CONFIRM'.
     SET PF-STATUS 'STATUS_100'.
   ELSE.
