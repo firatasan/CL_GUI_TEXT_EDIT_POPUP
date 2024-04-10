@@ -18,6 +18,7 @@ CL_GUI_TEXTEDIT_POPUP
   - [CREATE_TEXT_CTRL](#CREATE_TEXT_CTRL)
   - [POPUP_TO_INFO](#POPUP_TO_INFO)
   - [SET_PROPERTIES](#SET_PROPERTIES)
+- [**Function**](#Function)
 
 
 
@@ -42,6 +43,15 @@ MV_ICON	        Instance Attribute	Public	Type	        ICON_D	                  
 
 # Methods 
 
+SET_TEXT	          Instance Method	    Private	                               	Text hinzufügen
+GET_DISPLAY_MODE	  Instance Method	    Public	                               	Getter für Display Mode
+SET_PARENT	        Instance Method	    Public	                               	Setter für Parent
+GET_INSTANCE	      Static Method	      Public	                               	Erzeugt den PopUp Instanz
+POPUP_TO_CONFIRM	  Instance Method	    Public	                               	[Static] Confirm-PopUp anzeigen
+CREATE_TEXT_CTRL	  Instance Method	    Public	                               	Objekte instanziieren
+POPUP_TO_INFO	      Instance Method	    Public	                               	[Static] Information-PopUp anzeigen
+SET_PROPERTIES	    Instance Method    	Private	                               	PopUp-Eigenschaften festlegen
+
 
   <br>
   <img src="./ScreenShots/methods1.jpg" alt="Methods 1" >
@@ -52,25 +62,253 @@ MV_ICON	        Instance Attribute	Public	Type	        ICON_D	                  
 
 ## SET_TEXT
 
+```abap
+  METHOD set_text.
+
+    mo_text_ctrl->set_textstream( text  =   mv_text ).
+
+  ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/settext.jpg" alt="Set Text Method" >
+  <br>
+
+  <p align="right"><a href="#top">⬆️ back to top</a></p>
+
 ## GET_DISPLAY_MODE
+
+```abap
+  method GET_DISPLAY_MODE.
+
+    rv_result = mv_display_mode.
+
+  endmethod.
+```
+  <br>
+  <img src="./ScreenShots/getdisplaymode.jpg" alt="Get Display Mode" >
+  <br>
+
+<p align="right"><a href="#top">⬆️ back to top</a></p>
+
 
 ## SET_PARENT
 
+```abap
+  method SET_PARENT.
+
+    mo_parent = io_parent.
+
+  endmethod.
+```
+  <br>
+  <img src="./ScreenShots/setparent.jpg" alt="Set Parent" >
+  <br>
+
+<p align="right"><a href="#top">⬆️ back to top</a></p>
+
+
 ## GET_INSTANCE
+
+```abap
+  METHOD GET_INSTANCE.
+
+    ro_obj = NEW /TNG/CL_GUI_TEXTEDIT_POPUP( ).
+    ro_obj->mv_text = iv_text.
+    ro_obj->mv_icon = iv_icon.
+
+  ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/getinstance.jpg" alt="Get Instance" >
+  <br>
+
+<p align="right"><a href="#top">⬆️ back to top</a></p>
 
 ## POPUP_TO_CONFIRM
 
+```abap
+  METHOD POPUP_TO_CONFIRM.
+
+    mv_display_mode = /tng/if_et_editor_constants=>co_popup_to_confirm.
+
+    CALL FUNCTION '/TNG/GUI_TEXTEDIT_POPUP'
+      EXPORTING
+        io_text_ctrl = me
+      IMPORTING
+        ev_confirmed = rv_value.
+
+
+  ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/popuptoconfirm.jpg" alt="popuptoconfirm" >
+  <br>
+
+  <p align="right"><a href="#top">⬆️ back to top</a></p>
+
 ## CREATE_TEXT_CTRL
+
+```abap
+  METHOD CREATE_TEXT_CTRL.
+
+    mo_text_ctrl = NEW cl_gui_textedit(
+          wordwrap_mode              = cl_gui_textedit=>wordwrap_at_windowborder
+          wordwrap_position          = 72
+          parent                     =  mo_parent   ).
+
+    set_properties( ).
+    set_text( ).
+
+  ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/createtextctrl.jpg" alt="Create Text Ctrl" >
+  <br>
+
+  <p align="right"><a href="#top">⬆️ back to top</a></p>
 
 ## POPUP_TO_INFO
 
+```abap
+  METHOD POPUP_TO_INFO.
+
+    mv_display_mode = 001.
+
+    CALL FUNCTION 'ZGUI_TEXTEDIT_POPUP'
+      EXPORTING
+        io_text_ctrl = me.
+
+
+
+  ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/popuptoinfo.jpg" alt="Popup To Info" >
+  <br>
+
+  <p align="right"><a href="#top">⬆️ back to top</a></p>
+
 ## SET_PROPERTIES
 
+```abap
+METHOD SET_PROPERTIES.
+
+  mo_text_ctrl->set_toolbar_mode( toolbar_mode     = CL_GUI_TEXTEDIT=>FALSE ).
+  mo_text_ctrl->set_statusbar_mode( statusbar_mode = CL_GUI_TEXTEDIT=>FALSE ).
+  mo_text_ctrl->set_readonly_mode(  readonly_mode  = cl_gui_textedit=>TRUE ).
+  mo_text_ctrl->set_height( height  =   5 ).
+  mo_text_ctrl->set_width( width = 70 ).
+*  mo_text_ctrl->set_
+
+ENDMETHOD.
+```
+  <br>
+  <img src="./ScreenShots/setproperties.jpg" alt="Set Properties" >
+  <br>
+
+  <p align="right"><a href="#top">⬆️ back to top</a></p>
+
+
+# Function
+
+```abap
+FUNCTION /TNG/GUI_TEXTEDIT_POPUP .
+*"----------------------------------------------------------------------
+*"*"Lokale Schnittstelle:
+*"  IMPORTING
+*"     REFERENCE(IO_TEXT_CTRL) TYPE REF TO  /TNG/CL_GUI_TEXTEDIT_POPUP
+*"  EXPORTING
+*"     REFERENCE(EV_CONFIRMED) TYPE  SAP_BOOL
+*"----------------------------------------------------------------------
+  PERFORM init.
+
+  go_text_ctrl = io_text_ctrl.
+
+  CALL SCREEN 100 STARTING AT 10 10 ENDING AT 82 16.
+
+  ev_confirmed = gv_confirmed.
+
+ENDFUNCTION.
+```
+  <br>
+    <br>
+      <br>
+      
+```abap
+PROCESS BEFORE OUTPUT.
+  MODULE status_0100.
+*
+PROCESS AFTER INPUT.
+  MODULE exit AT EXIT-COMMAND.
+  MODULE user_command_0100.
+```
+  <br>
+    <br>
+      <br>
+
+```abap
+MODULE status_0100 OUTPUT.
+
+  go_container = NEW cl_gui_custom_container( container_name = 'CNT_TEXT' ).
+  go_text_ctrl->set_parent( go_container ).
+  go_text_ctrl->create_text_ctrl( ).
+
+  IF go_text_ctrl->get_display_mode( ) EQ /tng/if_et_editor_constants=>co_popup_to_confirm.
+    SET TITLEBAR  'TITLE_CONFIRM'.
+    SET PF-STATUS 'STATUS_100'.
+  ELSE.
+    SET TITLEBAR  'TITLE_INFO'.
+    SET PF-STATUS 'STATUS_INFO_100'.
+  ENDIF.
+ENDMODULE.
+```
+  <br>
+    <br>
+      <br>
+
+```abap
+*----------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0100  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE user_command_0100 INPUT.
+
+  DATA: lv_ok TYPE sy-ucomm.
+  lv_ok = gv_ok.
+
+  CLEAR gv_ok.
+
+  IF lv_ok EQ 'OKAY'.
+    gv_confirmed = abap_true.
+    LEAVE TO SCREEN 0.
+  ENDIF.
 
 
 
+ENDMODULE.
+
+MODULE exit INPUT.
+  LEAVE TO SCREEN 0.
+ENDMODULE.
+
+```
+
+  <br>
+  <img src="./ScreenShots/func1.jpg" alt="Func 1" >
+  <br>
 
 
+  <br>
+  <img src="./ScreenShots/func2.jpg" alt="Func 2" >
+  <br>
+
+
+  <br>
+  <img src="./ScreenShots/func3.jpg" alt="Func 3" >
+  <br>
+      
 
 <br>
 <a href="https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/index.htm?file=abencds_arithmetic_expression_v2.htm">SAP Docu</a>
