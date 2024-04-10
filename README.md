@@ -24,6 +24,51 @@ CL_GUI_TEXTEDIT_POPUP
 
 # Attributes 
 
+MV_TEXT	        Instance Attribute	Private	Type          STRING	                  PopUp-Text
+MO_TEXT_CTRL	  Instance Attribute	Public	Type Ref To	  CL_GUI_TEXTEDIT	          SAP TextEdit Control
+MO_PARENT	      Instance Attribute	Public	Type Ref To	  CL_GUI_CUSTOM_CONTAINER	  Container fuer Custom Controls in der Dynpro Area
+MV_DISPLAY_MODE	Instance Attribute	Private	Type          Z_POPUP_TYPE	            PopUp-Type (Constants)
+MV_ICON	        Instance Attribute	Public	Type	        ICON_D	                  Dynpro Icon
+
+  <br>
+  <img src="./ScreenShots/attributes1.jpg" alt="Attributes 1" >
+  <br>
+
+  <br>
+  <img src="./ScreenShots/attributes2.jpg" alt="Attributes 2" >
+  <br>
+
+<p align="right"><a href="#top">⬆️ back to top</a></p>
+
+# Methods 
+
+
+  <br>
+  <img src="./ScreenShots/methods1.jpg" alt="Methods 1" >
+  <br>
+
+<p align="right"><a href="#top">⬆️ back to top</a></p>
+
+
+## SET_TEXT
+
+## GET_DISPLAY_MODE
+
+## SET_PARENT
+
+## GET_INSTANCE
+
+## POPUP_TO_CONFIRM
+
+## CREATE_TEXT_CTRL
+
+## POPUP_TO_INFO
+
+## SET_PROPERTIES
+
+
+
+
 
 
 
