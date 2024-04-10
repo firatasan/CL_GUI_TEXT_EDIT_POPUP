@@ -9,7 +9,7 @@ CL_GUI_TEXTEDIT_POPUP
   - [MO_PARENT](#MO_PARENT)
   - [MV_DISPLAY_MODE](#MV_DISPLAY_MODE)
   - [MV_ICON](#MV_ICON)
-- [Methods](#Methods)
+- [**Methods**](#Methods)
   - [SET_TEXT](#SET_TEXT)
   - [GET_DISPLAY_MODE](#GET_DISPLAY_MODE)
   - [SET_PARENT](#SET_PARENT)
@@ -26,16 +26,6 @@ CL_GUI_TEXTEDIT_POPUP
 
 
 
-
-## MV_TEXT
-
-- Abs       : mutlak deger  
-- Ceil      : yukariya tam sayiya yuvarla  
-- Floor     : asagiya tam sayiya yuvarla 
-- Div       : yandaki sayiya bolumu 
-- Mod       : yanindaki sayi kadar mod alma 
-- Division  : yandaki sayiya bolumu ve virgulden sonra kac sayi 
-- Round     : yanindaki rakam kadar yuvarlama
 
 <br>
 <a href="https://help.sap.com/doc/abapdocu_cp_index_htm/CLOUD/en-US/index.htm?file=abencds_arithmetic_expression_v2.htm">SAP Docu</a>
